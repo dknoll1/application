@@ -1,18 +1,22 @@
 .btn-primary {
-    background-color: orangered;
+    background-color: rebeccapurple;
     padding: 16px;
 }
 
 p {
-    color: brown;
+    color: black;
 }
 
 .imgstd {
     width: 33%;
 }
 
+h5 {
+    color: red;
+}
+
 h4 {
-    color: yellow;
+    color: skyblue;
 }
 
 h3 {
@@ -21,4 +25,8 @@ h3 {
 
 h2 {
     color: green;
+}
+
+h1 {
+    color: silver;
 }
