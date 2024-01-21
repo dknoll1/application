@@ -1,8 +1,18 @@
+body {
+    font-family: "Arial", "Times New Roman";
+}
+
+.main {
+    background-color:whitesmoke;
+}
+
 h3 {
     text-align: center;
 }
 
 .quote {
-    margin-left: 20px;
     font-style: italic;
+}
+.quotebox {
+    margin-left: 20px;
 }
