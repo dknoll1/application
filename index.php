@@ -1,4 +1,8 @@
 <?php
+# Author: Daniel Knoll
+# Date:   2/3/2023
+# Desc:   Index/controller of job application website -->
+
 
 // This is my controller
 
