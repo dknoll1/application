@@ -66,11 +66,11 @@ $f3->route('GET|POST /app2', function($f3) {
 $f3->route('GET|POST /app3', function($f3) {
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-        $softwareJobs[] = $_POST['software'];
-        $industryVerticals[] = $_POST['verticals'];
+        $softwareJobs = $_POST['software'];
+        $industryVerticals = $_POST['verticals'];
 
-        $f3->set('SESSION.software', $softwareJobs);
-        $f3->set('SESSION.verticals', $industryVerticals);
+        $f3->set('SESSION.software', array($softwareJobs));
+        $f3->set('SESSION.verticals', array($industryVerticals));
 
         $f3->reroute('summary');
     }

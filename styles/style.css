@@ -4,6 +4,7 @@ body {
 
 .main {
     background-color:whitesmoke;
+    padding-bottom:10px;
 }
 
 h3 {
@@ -15,12 +16,14 @@ h4 {
     font-family: "Arial Black";
 }
 
-.inputfield {
+.textfield {
     height: 50px;
 }
 
 .privacyPolicy {
     background-color: gray;
+    padding: 15px;
+    margin: 5px;
 }
 
 .quote {
@@ -28,4 +31,14 @@ h4 {
 }
 .quotebox {
     margin-left: 20px;
+}
+
+.navlink {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    text-decoration: none;
+    color: gray;
 }
