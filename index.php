@@ -69,8 +69,8 @@ $f3->route('GET|POST /app3', function($f3) {
         $softwareJobs = $_POST['software'];
         $industryVerticals = $_POST['verticals'];
 
-        $f3->set('SESSION.software', array($softwareJobs));
-        $f3->set('SESSION.verticals', array($industryVerticals));
+        $f3->set('SESSION.software', $softwareJobs);
+        $f3->set('SESSION.verticals', $industryVerticals);
 
         $f3->reroute('summary');
     }
