@@ -1,0 +1,57 @@
+<!--
+Author: Daniel Knoll
+Date:   2/3/2023
+Desc:   Summary view of the job application website
+-->
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/style.css">
+    <title>Job Application</title>
+</head>
+<body>
+<div class="container">
+    <div class="nav row">
+        <div class="leftNav col-7">
+            <a href="/328/application"><h1>Coding Company XYZ</h1>
+                <h2>Software Developer</h2></a>
+        </div>
+        <div class="rightNav col-5 text-end">
+            <br>
+            <button class="btn btn-primary" href="#">Apply Now!</button>
+        </div>
+    </div> <!-- end nav -->
+    <div class="main row">
+        <div class="mainLeft col-6">
+            Name: {{ @SESSION.firstName }} {{ @SESSION.lastName }}
+            <hr>
+            Email: {{ @SESSION.email }}
+            <hr>
+            State: {{ @SESSION.state }}
+            <hr>
+            Phone: {{ @SESSION.phone }}
+            <hr>
+            Github Link: {{ @SESSION.github }}
+            <hr>
+            Experience: {{ @SESSION.years }}
+            <hr>
+            Willing to Relocate: {{ @SESSION.relocate }}
+            <hr>
+            Mailing Lists:
+        </div>
+        <div class="mainRight col-6">
+            <img src="images/user.png" class="rounded-3 img-fluid" alt="programming at Coding Company XYZ">
+            <br>
+            <h4>Summary</h4>
+            <p>{{ @SESSION.biography }} </p>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
