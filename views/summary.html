@@ -43,6 +43,12 @@ Desc:   Summary view of the job application website
             Willing to Relocate: {{ @SESSION.relocate }}
             <hr>
             Mailing Lists:
+            <repeat group="{{ @SESSION.software }}" value="{{ @job }}">
+                {{ @job }},
+            </repeat>
+            <repeat group="{{ @SESSION.verticals }}" value="{{ @vertical }}">
+                {{ @vertical }},
+            </repeat>
         </div>
         <div class="mainRight col-6">
             <img src="images/user.png" class="rounded-3 img-fluid" alt="programming at Coding Company XYZ">

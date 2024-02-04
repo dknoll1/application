@@ -10,6 +10,19 @@ h3 {
     text-align: center;
 }
 
+h4 {
+    size:30px;
+    font-family: "Arial Black";
+}
+
+.inputfield {
+    height: 50px;
+}
+
+.privacyPolicy {
+    background-color: gray;
+}
+
 .quote {
     font-style: italic;
 }
