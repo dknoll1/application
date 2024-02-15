@@ -12,20 +12,20 @@ function validName($name): bool
 /**
  * validGithub() checks to see that a string is a valid url. (PHP’s filter_var()
  * function with the FILTER_VALIDATE_URL filter can be used to validate a URL)
- * @return void
+ * @return bool
  */
-function validGithub()
+function validGithub($github): bool
 {
-
+    return filter_var($github, FILTER_VALIDATE_URL);
 }
 
 /**
  * validExperience() checks to see that a string is a valid “value” property.
- * @return void
+ * @return bool
  */
-function validExperience()
+function validExperience($years): bool
 {
-
+    return in_array($years, array('0-2', '2-4', '4+'));
 }
 
 /**
@@ -34,18 +34,18 @@ function validExperience()
  * numeric values entered. If you do require a specific phone number format,
  * be sure that the desired format is clear in the form. Don’t make the user
  * guess!
- * @return void
+ * @return bool
  */
-function validPhone($phone)
+function validPhone($phone): bool
 {
-    return false;
+    return ctype_digit($phone);
 }
 
 /**
  * validEmail() checks to see that an email address is valid.
- * @return void
+ * @return bool
  */
-function validEmail($email)
+function validEmail($email): bool
 {
-    return false;
+    return filter_var($email, FILTER_VALIDATE_EMAIL);
 }

@@ -31,12 +31,16 @@ Desc:   app1 view of the job application website
             <h4>Experience</h4>
             <hr>
                 <label for="biography" class="col-sm-4 control-label">Biography</label>
-                <textarea class="form-control textfield" id="bio" name="bio" rows="5" placeholder="Enter your biography..."></textarea>
+                <textarea class="form-control" id="biography" name="biography" rows="5" value="{{ @SESSION.biography }}"></textarea>
 
         </div>
         <div class="col-4 form-group">
             <label for="github" class="col-sm-4 control-label">Github Link</label>
-            <input class="form-control" type="text" name="github" id="github" value="">
+
+            <check if="{{ isset(@errors['github']) }}">
+                <span class="err">{{ @errors['github'] }}</span>
+            </check>
+            <input class="form-control" type="text" name="github" id="github" value="{{ @SESSION.github }}">
 
             <label class="control-label">Years Experience</label><br>
             <div class="row">
@@ -49,7 +53,12 @@ Desc:   app1 view of the job application website
                 <div class="col-4">
                     <label><input type="radio" name="years" id="4+" value="4+"> 4+ </label>
                 </div>
+
+                <check if="{{ isset(@errors['experience']) }}">
+                    <span class="err">{{ @errors['experience'] }}</span>
+                </check>
             </div>
+
             <label class="control-label">Willing to Relocate</label><br>
             <div class="row">
                 <div class="col-4">

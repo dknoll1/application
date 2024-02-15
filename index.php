@@ -50,7 +50,7 @@ $f3->route('GET|POST /app1', function($f3) {
         }
         $state = $_POST['state'];
         if (validPhone($_POST['phone'])) {
-            $email = $_POST['phone'];
+            $phone = $_POST['phone'];
         }
         else {
             $f3->set('errors["phone"]', "Invalid phone number.");
@@ -74,8 +74,18 @@ $f3->route('GET|POST /app2', function($f3) {
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $biography = $_POST['biography'];
-        $github = $_POST['github'];
-        $years = $_POST['years'];
+        if (validGithub($_POST['github'])) {
+            $github = $_POST['github'];
+        }
+        else {
+            $f3->set('errors["github"]', "Invalid URL.");
+        }
+        if (validExperience($_POST['years'])) {
+            $years = $_POST['years'];
+        }
+        else {
+            $f3->set('errors["experience"]', "Invalid selection.");
+        }
         $relocate = $_POST['relocate'];
 
         $f3->set('SESSION.biography', $biography);
@@ -83,7 +93,9 @@ $f3->route('GET|POST /app2', function($f3) {
         $f3->set('SESSION.years', $years);
         $f3->set('SESSION.relocate', $relocate);
 
-        $f3->reroute('app3');
+        if (empty($f3->get('errors'))) {
+            $f3->reroute('app3');
+        }
     }
     $view = new Template();
     echo $view->render('views/app2.html');
