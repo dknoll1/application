@@ -13,6 +13,7 @@ error_reporting(E_ALL);
 session_start();
 // Require autoload file
 require_once('vendor/autoload.php');
+require_once('model/validate.php');
 
 // Instantiate F3 Base Class
 $f3 = Base::instance();
@@ -26,11 +27,34 @@ $f3->route('GET /', function() {
 $f3->route('GET|POST /app1', function($f3) {
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-        $firstName = $_POST['firstName'];
-        $lastName = $_POST['lastName'];
-        $email = $_POST['email'];
+
+        if (validName($_POST['firstName'])) {
+            $firstName = $_POST['firstName'];
+        }
+        else {
+            $f3->set('errors["firstName"]', "Invalid name. 
+            Use English Alphabetical letters only!");
+        }
+        if (validName($_POST['lastName'])) {
+            $lastName = $_POST['lastName'];
+        }
+        else {
+            $f3->set('errors["lastName"]', "Invalid name. 
+            Use English Alphabetical letters only!");
+        }
+        if (validEmail($_POST['email'])) {
+            $email = $_POST['email'];
+        }
+        else {
+            $f3->set('errors["email"]', "Invalid email address.");
+        }
         $state = $_POST['state'];
-        $phone = $_POST['phone'];
+        if (validPhone($_POST['phone'])) {
+            $email = $_POST['phone'];
+        }
+        else {
+            $f3->set('errors["phone"]', "Invalid phone number.");
+        }
 
         $f3->set('SESSION.firstName', $firstName);
         $f3->set('SESSION.lastName', $lastName);
@@ -38,7 +62,9 @@ $f3->route('GET|POST /app1', function($f3) {
         $f3->set('SESSION.state', $state);
         $f3->set('SESSION.phone', $phone);
 
-        $f3->reroute('app2');
+        if (empty($f3->get('errors'))) {
+            $f3->reroute('app2');
+        }
     }
     $view = new Template();
     echo $view->render('views/app1.html');

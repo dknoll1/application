@@ -33,17 +33,29 @@ Desc:   app1 view of the job application website
                 <div class="row">
                     <div class="col-6">
                         <label for="firstName" class="col-sm-4 control-label">First Name</label>
-                        <input class="form-control" type="text" name="firstName" id="firstName" value="">
+                        <input class="form-control" type="text" name="firstName" id="firstName" value="{{ @SESSION.firstName }}">
+
+                        <check if="{{ isset(@errors['firstName']) }}">
+                            <span class="err">{{ @errors['firstName'] }}</span>
+                        </check>
                     </div>
                     <div class="col-6">
                         <label for="lastName" class="col-sm-4 control-label">Last Name</label>
-                        <input class="form-control" type="text" name="lastName" id="lastName" value="">
+                        <input class="form-control" type="text" name="lastName" id="lastName" value="{{ @SESSION.lastName }}">
+
+                        <check if="{{ isset(@errors['lastName']) }}">
+                            <span class="err">{{ @errors['lastName'] }}</span>
+                        </check>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-12">
                         <label for="email" class="col-sm-4 control-label">Email</label>
                         <input class="form-control" type="text" name="email" id="email" value="">
+
+                        <check if="{{ isset(@errors['email']) }}">
+                            <span class="err">{{ @errors['email'] }}</span>
+                        </check>
                     </div>
                 </div>
                 <div class="row">
@@ -107,6 +119,10 @@ Desc:   app1 view of the job application website
                     <div class="col-6">
                         <label for="phone" class="col-sm-4 control-label">Phone</label>
                         <input class="form-control" type="text" name="phone" id="phone" value="">
+
+                        <check if="{{ isset(@errors['phone']) }}">
+                            <span class="err">{{ @errors['phone'] }}</span>
+                        </check>
                     </div>
                 </div>
 
