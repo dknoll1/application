@@ -51,7 +51,7 @@ Desc:   app1 view of the job application website
                 <div class="row">
                     <div class="col-12">
                         <label for="email" class="col-sm-4 control-label">Email</label>
-                        <input class="form-control" type="text" name="email" id="email" value="">
+                        <input class="form-control" type="text" name="email" id="email" value="{{ @SESSION.email }}">
 
                         <check if="{{ isset(@errors['email']) }}">
                             <span class="err">{{ @errors['email'] }}</span>
