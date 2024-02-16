@@ -33,7 +33,7 @@ Desc:   app1 view of the job application website
                 <div class="row">
                     <div class="col-6">
                         <label for="firstName" class="col-sm-4 control-label">First Name</label>
-                        <input class="form-control" type="text" name="firstName" id="firstName" value="{{ @SESSION.firstName }}">
+                        <input class="form-control" type="text" name="firstName" id="firstName" value="{{ @SESSION.firstName }}" required>
 
                         <check if="{{ isset(@errors['firstName']) }}">
                             <span class="err">{{ @errors['firstName'] }}</span>
@@ -41,7 +41,7 @@ Desc:   app1 view of the job application website
                     </div>
                     <div class="col-6">
                         <label for="lastName" class="col-sm-4 control-label">Last Name</label>
-                        <input class="form-control" type="text" name="lastName" id="lastName" value="{{ @SESSION.lastName }}">
+                        <input class="form-control" type="text" name="lastName" id="lastName" value="{{ @SESSION.lastName }}" required>
 
                         <check if="{{ isset(@errors['lastName']) }}">
                             <span class="err">{{ @errors['lastName'] }}</span>
@@ -51,7 +51,7 @@ Desc:   app1 view of the job application website
                 <div class="row">
                     <div class="col-12">
                         <label for="email" class="col-sm-4 control-label">Email</label>
-                        <input class="form-control" type="text" name="email" id="email" value="{{ @SESSION.email }}">
+                        <input class="form-control" type="text" name="email" id="email" value="{{ @SESSION.email }}" required>
 
                         <check if="{{ isset(@errors['email']) }}">
                             <span class="err">{{ @errors['email'] }}</span>
@@ -118,7 +118,7 @@ Desc:   app1 view of the job application website
                     </div>
                     <div class="col-6">
                         <label for="phone" class="col-sm-4 control-label">Phone</label>
-                        <input class="form-control" type="text" name="phone" id="phone" value="{{ @SESSION.phone }}">
+                        <input class="form-control" type="text" name="phone" id="phone" value="{{ @SESSION.phone }}" required>
 
                         <check if="{{ isset(@errors['phone']) }}">
                             <span class="err">{{ @errors['phone'] }}</span>
