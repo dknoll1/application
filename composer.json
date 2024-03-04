@@ -1,12 +1,16 @@
 {
   "name": "dknoll/328/application",
+  "description": "Job Application Assignment",
   "authors": [
     {
       "name": "Daniel Knoll",
-      "email": "knollmdan@gmail.com"
+      "email": "knoll.daniel@student.greenriver.edu"
     }
   ],
   "require": {
     "bcosca/fatfree-core": "dev-master"
+  },
+  "autoload": {
+    "classmap": [ "classes/", "model/", "controllers/" ]
   }
 }
