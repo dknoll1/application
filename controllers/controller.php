@@ -50,9 +50,11 @@ class Controller
             $mailing = $_POST['mailing'];
             if (empty($this->_f3->get('errors'))) {
                 if ($mailing !== null) {
+                    var_dump($this->_f3->get('SESSION'));
                     // Instantiate an applicant who wants mailing lists object
                     $applicant = new Applicant_SubscribedToLists($firstName, $lastName, $email, $state, $phone);
                 } else {
+                    var_dump($this->_f3->get('SESSION'));
                     // Instantiate a normal applicant object
                     $applicant = new Applicant($firstName, $lastName, $email, $state, $phone);
                 }
@@ -61,8 +63,6 @@ class Controller
                 // Redirect to app2 route
                 $this->_f3->reroute('app2');
             }
-//            var_dump($f3->get('SESSION.applicant'));
-
         }
 
         $view = new Template();
