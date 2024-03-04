@@ -1,5 +1,9 @@
 <?php
-
+/*
+ * desc: mailing list applicant Class
+ * Author: Daniel Knoll
+ * date: 3/3/2024
+ */
 class Applicant_SubscribedToLists extends Applicant
 {
     private array $_selectionsJobs;

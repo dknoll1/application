@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * validation class for application app
+ * author: daniel knoll
+ * date: 3/3/2024
+ */
 class Validate
 {
     /**

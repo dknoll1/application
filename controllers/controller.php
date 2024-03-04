@@ -1,7 +1,7 @@
 <?php
 
 /**
- * 328/applicant/controllers/controller.php
+ * 328/application/controllers/controller.php
  * The Controller class for my Job Application app
  * Author: Daniel Knoll
  * 3/2/2024
