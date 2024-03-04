@@ -28,33 +28,37 @@ Desc:   Summary view of the job application website
     </div> <!-- end nav -->
     <div class="main row">
         <div class="mainLeft col-6">
-            Name: {{ @SESSION.firstName }} {{ @SESSION.lastName }}
+            Name: {{ @SESSION.application->getFname() }} {{ @SESSION.application->getLname() }}
             <hr>
-            Email: {{ @SESSION.email }}
+            Email: {{ @SESSION.application->getEmail() }}
             <hr>
-            State: {{ @SESSION.state }}
+            State: {{ @SESSION.application->getState() }}
             <hr>
-            Phone: {{ @SESSION.phone }}
+            Phone: {{ @SESSION.application->getPhone() }}
             <hr>
-            Github Link: {{ @SESSION.github }}
+            Github Link: {{ @SESSION.application->getGithub }}
             <hr>
-            Experience: {{ @SESSION.years }}
+            Experience: {{ @SESSION.application->getExperience() }}
             <hr>
-            Willing to Relocate: {{ @SESSION.relocate }}
+            Willing to Relocate: {{ @SESSION.application->getRelocate() }}
             <hr>
-            Mailing Lists:
-            <repeat group="{{ @SESSION.software }}" value="{{ @job }}">
-                {{ @job }},
-            </repeat>
-            <repeat group="{{ @SESSION.verticals }}" value="{{ @vertical }}">
-                {{ @vertical }},
-            </repeat>
+            <check if="{{ @SESSION.mailing != NULL }}">
+                <true>
+                    Mailing Lists:
+                    <repeat group="{{ @SESSION.application->getSelectionsJobs() }}" value="{{ @job }}">
+                        {{ @job }},
+                    </repeat>
+                    <repeat group="{{ @SESSION.application->getSelectionsVerticals() }}" value="{{ @vertical }}">
+                        {{ @vertical }},
+                    </repeat>
+                </true>
+            </check>
         </div>
         <div class="mainRight col-6">
             <img src="images/user.png" class="rounded-3 img-fluid" alt="programming at Coding Company XYZ">
             <br>
             <h4>Summary</h4>
-            <p>{{ @SESSION.biography }} </p>
+            <p>{{ @SESSION.application->getBio() }} </p>
         </div>
 
     </div>

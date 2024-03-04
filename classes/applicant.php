@@ -126,9 +126,9 @@ class Applicant
     /**
      * @param string $github
      */
-    public function setGithub($github): void
+    public function setGithub($github="")
     {
-        $this->_github = $github;
+        $this->_github = $github="";
     }
 
     /**

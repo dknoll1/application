@@ -21,7 +21,7 @@ class Controller
         $view = new Template();
         echo $view->render('views/home.html');
     }
-    function app1($f3)
+    function app1($f3): void
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if (Validate::validName($_POST['firstName'])) {
@@ -49,12 +49,10 @@ class Controller
             }
             $mailing = $_POST['mailing'];
             if (empty($this->_f3->get('errors'))) {
-                if ($mailing !== null) {
-                    var_dump($this->_f3->get('SESSION'));
+                if ('SESSION.mailing' != null) {
                     // Instantiate an applicant who wants mailing lists object
                     $applicant = new Applicant_SubscribedToLists($firstName, $lastName, $email, $state, $phone);
                 } else {
-                    var_dump($this->_f3->get('SESSION'));
                     // Instantiate a normal applicant object
                     $applicant = new Applicant($firstName, $lastName, $email, $state, $phone);
                 }
@@ -70,8 +68,6 @@ class Controller
     }
     function app2($f3)
     {
-
-        var_dump($this->_f3->get('SESSION.application'));
 
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -90,7 +86,10 @@ class Controller
             }
             $relocate = $_POST['relocate'];
 
+            $this->_f3->get('SESSION.application')->setGithub($github);
+            $this->_f3->get('SESSION.application')->setExperience($years);
             $this->_f3->get('SESSION.application')->setRelocate($relocate);
+            $this->_f3->get('SESSION.application')->setBio($biography);
 
             if (empty($this->_f3->get('errors'))) {
                 if ($this->_f3->get('SESSION.mailing') != NULL)
