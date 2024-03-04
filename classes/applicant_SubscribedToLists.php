@@ -10,12 +10,20 @@ class Applicant_SubscribedToLists extends Applicant
     private array $_selectionsVerticals;
 
 
+    /**
+     * constructor calls the parent constructor and provides the variables a normal applicant uses
+     * @param $fname
+     * @param $lname
+     * @param $email
+     * @param $state
+     * @param $phone
+     */
     public function __construct($fname, $lname, $email, $state, $phone)
     {
         parent::__construct($fname, $lname, $email, $state, $phone);
     }
     /**
-     * @return mixed
+     * @return array of strings
      */
     public function getSelectionsJobs()
     {
@@ -23,7 +31,7 @@ class Applicant_SubscribedToLists extends Applicant
     }
 
     /**
-     * @param mixed $selectionsJobs
+     * @param array $selectionsJobs
      */
     public function setSelectionsJobs($selectionsJobs): void
     {
@@ -31,7 +39,7 @@ class Applicant_SubscribedToLists extends Applicant
     }
 
     /**
-     * @return mixed
+     * @return array of strings
      */
     public function getSelectionsVerticals()
     {
@@ -39,7 +47,7 @@ class Applicant_SubscribedToLists extends Applicant
     }
 
     /**
-     * @param mixed $selectionsVerticals
+     * @param array $selectionsVerticals
      */
     public function setSelectionsVerticals($selectionsVerticals): void
     {

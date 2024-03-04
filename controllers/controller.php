@@ -11,16 +11,30 @@ class Controller
 {
     private $_f3; //Fat-free router
 
+    /**
+     * constructor to assign f3 to this classes private variable
+     * @param $f3
+     */
     function __construct($f3)
     {
         $this->_f3 = $f3;
     }
 
+    /**
+     * home function when called displays homepage
+     * @return void
+     */
     function home()
     {
         $view = new Template();
         echo $view->render('views/home.html');
     }
+
+    /**
+     * app1 function, calls the validation class for variables and then sets them using f3
+     * @param $f3
+     * @return void
+     */
     function app1($f3): void
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -66,9 +80,15 @@ class Controller
         $view = new Template();
         echo $view->render('views/app1.html');
     }
+
+    /**
+     * another application page that has more called to the validate class and then uses
+     * some setters found in the applicant class
+     * @param $f3
+     * @return void
+     */
     function app2($f3)
     {
-        var_dump($this->_f3->get('SESSION.application'));
 
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -105,6 +125,13 @@ class Controller
 
 
     }
+
+    /**
+     * another application page that assigned the arrays of mailing lists for mailing
+     * list subscribed applicants
+     * @param $f3
+     * @return void
+     */
     function app3($f3)
     {
 
@@ -122,9 +149,13 @@ class Controller
         echo $view->render('views/app3.html');
     }
 
+    /**
+     * the summary page which calls the views template to handle spitting out the variables.
+     * @param $f3
+     * @return void
+     */
     function summary($f3)
     {
-        var_dump($this->_f3->get('SESSION.application'));
         $view = new Template();
         echo $view->render('views/summary.html');
     }
