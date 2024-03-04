@@ -47,9 +47,9 @@ class Controller
             } else {
                 $this->_f3->set('errors["phone"]', "Invalid phone number.");
             }
-            $mailing = $_POST['mailing'];
+            $this->_f3->set('SESSION.mailing', $_POST['mailing']);
             if (empty($this->_f3->get('errors'))) {
-                if ('SESSION.mailing' != null) {
+                if ($this->_f3->get('SESSION.mailing') !== null) {
                     // Instantiate an applicant who wants mailing lists object
                     $applicant = new Applicant_SubscribedToLists($firstName, $lastName, $email, $state, $phone);
                 } else {
@@ -68,6 +68,7 @@ class Controller
     }
     function app2($f3)
     {
+        var_dump($this->_f3->get('SESSION.application'));
 
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -112,10 +113,10 @@ class Controller
             $softwareJobs = $_POST['software'];
             $industryVerticals = $_POST['verticals'];
 
-            $this->f3->set('SESSION.software', $softwareJobs);
-            $this->f3->set('SESSION.verticals', $industryVerticals);
+            $this->_f3->get('SESSION.application')->setSelectionsJobs($softwareJobs);
+            $this->_f3->get('SESSION.application')->setSelectionsVerticals($industryVerticals);
 
-            $this->f3->reroute('summary');
+            $this->_f3->reroute('summary');
         }
         $view = new Template();
         echo $view->render('views/app3.html');
@@ -123,6 +124,7 @@ class Controller
 
     function summary($f3)
     {
+        var_dump($this->_f3->get('SESSION.application'));
         $view = new Template();
         echo $view->render('views/summary.html');
     }

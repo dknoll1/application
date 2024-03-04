@@ -2,13 +2,13 @@
 
 class Applicant_SubscribedToLists extends Applicant
 {
-    private Array $_selectionsJobs;
-    private Array $_selectionsVerticals;
+    private array $_selectionsJobs;
+    private array $_selectionsVerticals;
 
 
-    public function __construct()
+    public function __construct($fname, $lname, $email, $state, $phone)
     {
-        parent::__construct();
+        parent::__construct($fname, $lname, $email, $state, $phone);
     }
     /**
      * @return mixed
